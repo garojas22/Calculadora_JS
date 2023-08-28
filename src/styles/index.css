@@ -7,13 +7,16 @@
 
 body {
     min-height: 100vh;
-    background-color: #090c31;
     display: grid;
     place-items: center;
 }
 
 .calculadora {
-    background-color: #15173c;
+
+    transition: all 1s;
+    position: relative;
+    cursor: pointer;
+    background-color: #0f1240;
     color: white;
     width: 350px;
     max-width: 100%;
@@ -26,7 +29,7 @@ body {
 
 .pantalla {
     grid-column: 1 / -1;
-    background-color: #090c31;
+    background-color: #000001;
     padding: 1.5rem;
     font-size: 2rem;
     text-align: right;
@@ -36,21 +39,73 @@ body {
     font-weight: 600;
 }
 
-.btn {
-    background-color: #15173c;;
-    color: white;
-    border: 0;
-    padding: 1.5rem .5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: .5rem;
-    cursor: pointer;
-}
 
-.btn:hover {
-    background-color: #090c31;
-}
+.button {
+    appearance: button;
+    background-color: #1b1e3f;
+    border: solid transparent;
+    border-radius: 2.5rem;
+    border-width: 0 0 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    line-height: 20px;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 19px 19px;
+    text-align: center;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    transform: translateZ(0);
+    transition: filter .2s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+   }
+   
+   .button:after {
+    background-clip: padding-box;
+    border: solid transparent;
+    border-radius: 1.5rem;
+    border-width: 0 0 4px;
+    bottom: -4px;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+   }
+   
+   .button:main, .button:focus {
+    user-select: auto;
+   }
+   
+   .button:hover:not(:disabled) {
+    filter: brightness(1.1);
+   }
+   
+   .button:disabled {
+    cursor: auto;
+   }
+   
+   .button:active:after {
+    border-width: 0 0 0px;
+   }
+   
+   .button:active {
+    padding-bottom: 10px;
+   }
+
+#borrar{
+    font-size: 18px;
+}   
 
 #cero {
     grid-column: span 2;

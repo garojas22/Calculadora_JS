@@ -10,7 +10,7 @@ import "../styles/index.css";
 import Home from "./component/home.jsx";
 
 const pantalla = document.querySelector(".pantalla");
-const botones = document.querySelectorAll(".btn");
+const botones = document.querySelectorAll(".button");
 
 botones.forEach(boton => {
     boton.addEventListener("click", () => {
