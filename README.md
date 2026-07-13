@@ -1,42 +1,22 @@
-# Hello World with React boilerplate
+# Calculadora JS
 
-Start coding a react application
+Una calculadora funcional construida con React y estilos propios, sin dependencia de frameworks de UI externos.
 
-> If you are working locally instead of using codespaces or gitpod, please follow [local installation steps](#local-installation-skip-if-you-are-working-on-codespaces-or-gitpod) and come back to this part of the readme.
+## Tecnologías
 
-## How to start coding?
+- React
+- CSS personalizado
+- Webpack como bundler
 
-- Install the packages with `$ npm install`.
-- Run the webpack server with `$ npm run start`
+## Instalación local
 
-You can update the `styles/index.css` or `js/index.js` depending on your needs.
-Add more files into your, `./src/js/components` or styles folder as you need them.
-
-## Local Installation (skip if you are working on codespaces or gitpod)
-
-Download the boilerplate using git
-
-```
-$ git clone https://github.com/4GeeksAcademy/react-hello.git
-$ cd react-hello
+```bash
+npm install
+npm run start
 ```
 
-## Publish your website!
+El servidor de desarrollo arrancará en `http://localhost:3000` (o el puerto configurado en `webpack.config.js`).
 
-This boilerplate is 100% compatible with the free [github pages](https://pages.github.com/) and [vercel](https://vercel.com/) hosting.
+## Sobre este proyecto
 
-It takes just 2 minutes to deploy, [click here to start the process](https://github.com/4GeeksAcademy/react-hello/blob/master/docs/DEPLOY.md).
-
-## Other features
-
-- Automatic Code Formatting: Use of [Prettier](https://prettier.io/) for automatic code indentation and formatting.
-- Error reporting: Use of [eslint](https://eslint.org/) for better error reporting.
-- Hot Deploy: Use of [Webpack Development Server](https://webpack.js.org/configuration/dev-server/) for hot deploy and live reload.
-- One-command publish of the code to github pages with `npm run deploy:github`.
-- Babel 7 (really fast).
-
-### Contributors
-
-This template was built as part of the 4Geeks Academy [Coding Bootcamp](https://4geeksacademy.com/us/coding-bootcamp) by [Alejandro Sanchez](https://twitter.com/alesanchezr) and many other contributors. Find out more about our [Full Stack Developer Course](https://4geeksacademy.com/us/coding-bootcamps/part-time-full-stack-developer), and [Data Science Bootcamp](https://4geeksacademy.com/us/coding-bootcamps/datascience-machine-learning).
-
-You can find other templates and resources like this at the [school github page](https://github.com/4geeksacademy/).
+Construí esta calculadora como parte de mi aprendizaje en desarrollo web. El objetivo fue practicar la manipulación del DOM con JavaScript vanilla, integrar React en un proyecto real y configurar Webpack manualmente sin depender de herramientas como Create React App. Fue un ejercicio que me ayudó a entender cómo funciona el bundling y cómo conectar lógica de negocio con una interfaz de usuario sencilla.
