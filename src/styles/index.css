@@ -9,10 +9,10 @@ body {
 min-height: 100vh;
 display: grid;
 place-items: center;
+background-color: #000001;
 }
 
 .calculadora {
-
 transition: all 1s;
 position: relative;
 cursor: pointer;
@@ -38,7 +38,6 @@ margin-bottom: 1rem;
 font-family: monospace;
 font-weight: 600;
 }
-
 
 .button {
 appearance: button;
@@ -83,7 +82,7 @@ top: 0;
 z-index: -1;
 }
 
-.button:main, .button:focus {
+.button:focus {
 user-select: auto;
 }
 
@@ -103,19 +102,15 @@ border-width: 0 0 0px;
 padding-bottom: 10px;
 }
 
-#borrar{
-font-size: 18px;
-}   
-
-#cero {
+.button-zero {
 grid-column: span 2;
 }
 
-#igual {
+.button-equals {
 grid-row: span 2;
 background-color: #e6394a;
 }
 
-#igual:hover {
+.button-equals:hover {
 background-color: #e65766;
 }
