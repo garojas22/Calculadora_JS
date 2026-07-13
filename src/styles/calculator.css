@@ -1,0 +1,7 @@
+.calculadora {
+  width: 320px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--calc-gap);
+}

@@ -1,0 +1,74 @@
+.button {
+  /* Forma ovalada (pastilla): más ancha que alta, igual que iOS moderno.
+     1.45/1 = width:height, así todos los botones son consistentemente ovalados. */
+  aspect-ratio: 1.45 / 1;
+  border: none;
+  border-radius: 9999px;
+
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: background 0.12s ease;
+
+  /* Color base: dígitos */
+  background: var(--calc-digit-bg);
+  color: var(--calc-digit-text);
+
+  /* Centrado del contenido (texto o SVG) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button:active {
+  background: var(--calc-digit-bg-active);
+}
+
+.button:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* Funciones: ⌫, AC/C, % — fondo gris claro, texto oscuro */
+.button.delete,
+.button.clear,
+.button.percent {
+  background: var(--calc-fn-bg);
+  color: var(--calc-fn-text);
+  font-size: 1.25rem;
+}
+
+.button.delete:active,
+.button.clear:active,
+.button.percent:active {
+  background: var(--calc-fn-bg-active);
+}
+
+/* Operadores y = — fondo naranja */
+.button.operator,
+.button.equals {
+  background: var(--calc-op-bg);
+  color: var(--calc-op-text);
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+.button.operator:active,
+.button.equals:active {
+  background: var(--calc-op-bg-active);
+}
+
+/* +/- comparte estilo con las funciones (gris claro, igual que % y AC) */
+.button.sign {
+  background: var(--calc-fn-bg);
+  color: var(--calc-fn-text);
+  font-size: 1.25rem;
+}
+
+.button.sign:active {
+  background: var(--calc-fn-bg-active);
+}

@@ -1,0 +1,14 @@
+:root {
+  --calc-bg: #000000;
+  --calc-text: #ffffff;
+  --calc-fn-bg: #a5a5a5;
+  --calc-fn-bg-active: #d9d9d9;
+  --calc-fn-text: #1c1c1e;
+  --calc-op-bg: #ff9f0a;
+  --calc-op-bg-active: #ffc266;
+  --calc-op-text: #ffffff;
+  --calc-digit-bg: #333333;
+  --calc-digit-bg-active: #737373;
+  --calc-digit-text: #ffffff;
+  --calc-gap: 12px;
+}
