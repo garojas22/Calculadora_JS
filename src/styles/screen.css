@@ -1,48 +1,68 @@
-/* Contenedor externo: ocupa las 4 columnas del grid y alinea el contenido
-   al fondo usando flex-direction: column + justify-content: flex-end.
-   NO tiene overflow — el overflow lo maneja el hijo .pantalla__expr. */
-.pantalla {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  min-height: 100px;
-  padding: 0 0.5rem 0.5rem;
-  margin-bottom: 0.25rem;
-}
+  /* Contenedor externo: ocupa las 4 columnas del grid y alinea el contenido
+    al fondo usando flex-direction: column + justify-content: flex-end.
+    NO tiene overflow — el overflow lo maneja el hijo .pantalla__expr. */
+  .pantalla {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 100px;
+    padding: 0 0.5rem 0.5rem;
+    margin-bottom: 0.25rem;
+  }
 
-/* Vista previa de la operación completada.
-   SIEMPRE está en el DOM (no se renderiza condicionalmente) para que la
-   calculadora no cambie de tamaño cuando aparece/desaparece.
-   min-height reserva el espacio incluso cuando está vacía. */
-.vista-previa {
-  min-height: 1.75rem;
-  text-align: right;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 300;
-  font-size: clamp(0.9rem, 4vw, 1.6rem);
-  color: #8e8e93;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+  /* Vista previa de la operación completada.
+    SIEMPRE está en el DOM (no se renderiza condicionalmente) para que la
+    calculadora no cambie de tamaño cuando aparece/desaparece.
+    min-height reserva el espacio incluso cuando está vacía. */
+  .vista-previa {
+    min-height: 1.75rem;
+    text-align: right;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
+    font-size: clamp(0.9rem, 4vw, 1.6rem);
+    color: #8e8e93;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-/* Expresión principal: el elemento que el usuario ve mientras tipea.
-   Es el único con overflow-x: auto. El ref de React apunta aquí para
-   mover scrollLeft desde JS y mostrar siempre el último carácter. */
-.pantalla__expr {
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  white-space: nowrap;
-  text-align: right;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-weight: 300;
-  font-size: clamp(2rem, 10vw, 4rem);
-  color: var(--calc-text);
-  line-height: 1.1;
-}
+  /* Expresión principal: el elemento que el usuario ve mientras tipea.
+    Es el único con overflow-x: auto. El ref de React apunta aquí para
+    mover scrollLeft desde JS y mostrar siempre el último carácter. */
+  .pantalla__expr {
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: none;
+    white-space: nowrap;
+    text-align: right;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 10vw, 4rem);
+    color: var(--calc-text);
+    line-height: 1.1;
+  }
 
-.pantalla__expr::-webkit-scrollbar {
-  display: none;
-}
+  .pantalla__expr::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* ── ESCALADO DINÁMICO DE FUENTE ─────────────────────────────────────────────
+    La clase se agrega al div .pantalla desde React, derivada de la longitud del
+    texto mostrado (sin medir el DOM). Los selectores descendientes escalan tanto
+    la expresión principal como la vista previa en la MISMA proporción (~70/55/45%
+    del tamaño base respectivamente), manteniendo la armonía visual entre las dos líneas.
+
+    Umbrales:
+      ≥  9 caracteres → pantalla-md  (~70% del tamaño base)
+      ≥ 13 caracteres → pantalla-sm  (~55% del tamaño base)
+      ≥ 16 caracteres → pantalla-xs  (~45% del tamaño base)              */
+
+  .pantalla.pantalla-md .pantalla__expr { font-size: clamp(1.4rem, 7vw,   2.8rem); }
+  .pantalla.pantalla-md .vista-previa  { font-size: clamp(0.65rem, 3vw,  1.12rem); }
+
+  .pantalla.pantalla-sm .pantalla__expr { font-size: clamp(1.1rem, 5.5vw, 2.2rem); }
+  .pantalla.pantalla-sm .vista-previa  { font-size: clamp(0.5rem,  2.5vw, 0.88rem); }
+
+  .pantalla.pantalla-xs .pantalla__expr { font-size: clamp(0.9rem, 4.5vw, 1.8rem); }
+  .pantalla.pantalla-xs .vista-previa  { font-size: clamp(0.4rem,  2vw,   0.72rem); }
