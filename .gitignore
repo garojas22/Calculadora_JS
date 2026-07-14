@@ -56,5 +56,7 @@ Thumbs.db
 node_modules/
 
 # build output — generado por webpack, no debe versionarse
-public/
-dist/
+/public/*
+!/public/.gitkeep
+/dist/
+/node_modules/
